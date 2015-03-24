@@ -50,7 +50,7 @@ The [Ansible provisioner](http://docs.vagrantup.com/v2/provisioning/ansible.html
 information for other integration end points.
 * Push/pull Docker images to the [Docker Hub Registry](https://registry.hub.docker.com/), which requires users to log in
 with their their username, email, and password when publishing builds using the 
-`[Docker CLI](https://docs.docker.com/reference/commandline/cli/#push)`.
+[Docker CLI](https://docs.docker.com/reference/commandline/cli/#push).
 
 ## How To Use / Role Variables
 
