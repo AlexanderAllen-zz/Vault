@@ -28,7 +28,7 @@ information include passwords to remote web services, databases, command line AP
 
 ## Example Vagrant configuration
 
-The [Ansible provisioner](http://docs.vagrantup.com/v2/provisioning/ansible.html) for Vagrant provides Ansible Vault support via the `ansible.ask_vault_pass` and `ansible.vault_password_file` options for your `Vagrantfile`. You can only use one at a time.
+The [Ansible provisioner](http://docs.vagrantup.com/v2/provisioning/ansible.html) for Vagrant provides Ansible Vault support via the `ansible.ask_vault_pass` and `ansible.vault_password_file` options for your `Vagrantfile`. You can only use one of these options at a time.
 
 ```
   # Setup provisioning with an ansible playbook
