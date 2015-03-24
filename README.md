@@ -24,18 +24,25 @@ information include passwords to remote web services, databases, command line AP
         vault_crypto_location: "playbook_location/vars",
        }
 ```
+**Note**: *Do not use an ending slash when overriding the locations to the cipher- and plain-text paths.*
 
-## Example Vagrant `Vagrantfile` configuration
+## Example Vagrant configuration
+
+The [Ansible provisioner](http://docs.vagrantup.com/v2/provisioning/ansible.html) for Vagrant provides Ansible Vault support via the `ansible.ask_vault_pass` and `ansible.vault_password_file` options for your `Vagrantfile`. You can only use one at a time.
 
 ```
   # Setup provisioning with an ansible playbook
   config.vm.provision "ansible" do |ansible|
-    # ...
+    
+    # ... rest of ansible configuration 
+    
+    # The Ansible provisioner will prompt you for a password every time it runs in order to decrypt vault data. 
     ansible.ask_vault_pass = true
+    
+    # Get the password for decrypting the vault cypher text from the "open_sesame" file.
+    ansible.vault_password_file = "/root/.passwords/open_sesame"
   end
 ```
-
-**Note**: *Do not use an ending slash when overriding the locations to the cipher- and plain-text paths.*
 
 ## What To Use For, Examples
 
@@ -61,7 +68,6 @@ line, or;
 * Profit?
 
 ## Notes / F.A.Q.
-
 
 * **How do I populate the vault?**: In order to create new or modify the existing cipher text file, you can either add a
  new `vault.yml` file to the current configured `vault_crypto_location` location file, or use the
