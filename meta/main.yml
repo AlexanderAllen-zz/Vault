@@ -1,9 +1,13 @@
 ---
 galaxy_info:
-  author: richard.alexander.allen@gmail.com
+  author: Richard Alexander Allen
   description: Simple role for securing sensitive data using Ansible Vault.
-  company: Richard Alexander Allen
   license: BSD 3-clause "New" or "Revised" License
   min_ansible_version: 1.5
+  platforms:
+    - name: GenericLinux
+      versions:
+        - any
   categories:
-    - security
+    - packaging
+    - system
