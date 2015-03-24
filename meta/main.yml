@@ -5,9 +5,5 @@ galaxy_info:
   company: Richard Alexander Allen
   license: BSD 3-clause "New" or "Revised" License
   min_ansible_version: 1.5
-  platforms: []
-  versions: []
   categories:
     - security
-
-dependencies: []
