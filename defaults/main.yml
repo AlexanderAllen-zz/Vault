@@ -1,0 +1,22 @@
+---
+# IP address to host containing the Ansible structured
+# data files that will be encrypted and decrypted.
+#
+# NOTE: This should NEVER be a publicly accessible host.
+#
+# By default this this is the host running the Ansible playbook.
+vault_delegation_host: 127.0.0.1
+
+# This role expects the values of the following two
+# variables to be different.
+vault_plaintext_filename: vault.yml
+vault_crypto_filename: .vault-crypto.yml
+
+# By default the path to the vault files is relative
+# to the Ansible playbook. You can change the path
+# to be any relative or absolute location as needed.
+vault_plaintext_location: "{{ playbook_dir }}/vars"
+vault_crypto_location: "{{ playbook_dir }}/vars"
+
+vault_plaintext_file: "{{ vault_plaintext_location }}/{{ vault_plaintext_filename }}"
+vault_crypto_file: "{{ vault_crypto_location }}/{{ vault_crypto_filename }}"

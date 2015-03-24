@@ -1,0 +1,23 @@
+---
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ vault_plaintext_file }}"
+    - "{{ vault_crypto_file }}"
+  delegate_to: "{{ vault_delegation_host }}"
+
+- name: Check for existing plain-text data
+  stat:
+    path: "{{ vault_plaintext_file }}"
+  register: vault_user
+  delegate_to: "{{ vault_delegation_host }}"
+
+- name: Encrypt plain-text data
+  command: ansible-vault encrypt "{{ vault_plaintext_file }}"
+  when: vault_user.stat.exists
+  register: vault_user_secured
+  delegate_to: "{{ vault_delegation_host }}"
+
+- name: Rename vault file
+  command: "mv {{ vault_plaintext_file }} {{ vault_crypto_file }}"
+  when: vault_user.stat.exists and vault_user_secured.changed == true
+  delegate_to: "{{ vault_delegation_host }}"

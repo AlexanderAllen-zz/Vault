@@ -1,0 +1,6 @@
+---
+
+# Example credentials: Docker Hub.
+docker_hub_user: yourusername
+docker_hub_pass: "Jon Skeet is immutable"
+docker_hub_email: tonytheponyhecomes@example.org
